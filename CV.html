@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.M</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon_ico/favicon-16x16.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f06, #48C9B0); /* bg colors*/
+            color: #731212a5;
+            line-height: 1;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            padding: 20px;
+            animation: backgroundAnimation 3s ease infinite alternate; /* BG color moving*/
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(45deg, #f06, #48C9B0); }
+            25%{background: linear-gradient(45deg,#1E90FF #9d7474)}
+            50%{background: linear-gradient(45deg, #2C3E50 #fff)}
+            75%{background: linear-gradient(45deg, #731212a5 #48C9B0)}
+            100% { background: linear-gradient(45deg, #f06, #1E90FF); }
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center; /* Center header elements vertically */
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #2C3E50;
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header img {
+            width: 120px; /* Pp size */
+            height: 120px;
+            border-radius: 70%; /* Make the picture circular */
+            margin-right: 40px; /* Space between pic and head*/
+        }
+
+        /* Extra details */
+        .extra-details {
+            display: none;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .box.show-details .extra-details {
+            display: block; /* Show details when box has 'show-details' class */
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        /* Flexbox layout for sections to arrange boxes horizontally */
+        .sections {
+            display: flex; /* Align horizontally */
+            flex-wrap: wrap; /* Allow boxes to wrap into the next row on smaller screens */
+            gap: 20px; /* Space between boxes */
+            justify-content: space-between;
+            width: 100%; /* Full width */
+            max-width: 900px;
+            margin: 0 auto; /* Center */
+        }
+
+        .box {
+            flex: 1 1 30%; /* Box width */
+            width: 250px; /* Min width of each box */
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Space between boxes vertically */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #2C3E50;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .divider {
+            border-top: 2px solid #9d7474;
+            margin: 20px 0;
+        }
+
+        .socials a {
+            margin: 10px;
+            display: inline-block;
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+
+        .socials a:hover {
+            transform: translateY(-10px);
+            filter: brightness(1.3);
+        }
+
+        /* Adjustment for small screen */
+        @media screen and (max-width: 768px) {
+            .box {
+                flex: 1 1 100%; 
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <img src="images/offi_pic.png" alt="Adrian C. Mahamod">
+            <div>
+                <h1>Adrian C. Mahamod</h1>
+                <p>Website Developer / Game Developer</p>
+            </div>
+        </header>
+
+        <div class="sections">
+            <!-- Education Section -->
+            <div class="box" onclick="toggleDetails(this)">
+                <h2>Education</h2>
+                <ul>
+                    <li><strong>Diploma In Information Technology</strong> - Winzelle International College</li>
+                    <br>
+                </ul>
+                <div class="extra-details">
+                    <p>I hold a Diploma in Information Technology and NC2. Despite facing challenges, I remained dedicated and worked hard with the support of my teachers and classmates. I am eager to apply my skills in IT and continue growing professionally</p>
+                </div>
+            </div>
+
+            <!-- Work Experience Section -->
+            <div class="box" onclick="toggleDetails(this)">
+                <h2>Work Experience</h2>
+                <ul>
+                    <li><strong>OJT</strong> - Web Development Intern/Computer Maintenance</li>
+                    <p><strong>Company:</strong> Human Resources Zamboanga City.</p>
+                </ul>
+                <div class="extra-details">
+                    <p>I interned for 600 hours, learning and contributing to various projects.</p>
+                </div>
+            </div>
+
+            <!-- Character References Section -->
+            <div class="box" onclick="toggleDetails(this)">
+                <h2>Character References</h2>
+                <ul>
+                    <li><strong>Miguel Datugan</strong> - Software Engineer, Teacher</li>
+                    <p><strong>Email:</strong> MiguelDatugan@gmail.com</p>
+                </ul>
+                <div class="extra-details">
+                    <p>Mr. Miguel Datugan is a licensed engineer and software engineer with a wealth of experience.</p>
+                </div>
+            </div>
+
+            <!-- Contacts Section -->
+            <div class="box">
+                <h2>Contacts</h2>
+                <ul>
+                    <li><strong>Phone:</strong> 09267779820</li>
+                    <p>You can also contact me through the icons below.</p>
+                </ul>
+                <!-- Social Media Icons -->
+                <div class="socials">
+                    <a href="mailto:dianmhmd03@gmail.com" target="_blank" class="icon">
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.GPb0ZcxnKxbRAXHa3xNw3QHaHa&pid=Api&P=0&h=220" alt="Gmail logo" width="50" height="50">
+                    </a>
+                    <a href="https://www.instagram.com/_hadr1an/" target="_blank">
+                        <img src="https://clipartcraft.com/images/logo-instagram-1080p.png" alt="Instagram logo" width="50" height="50">
+                    </a>
+                    <a href="https://web.facebook.com/mahamoddian34" target="_blank">
+                        <img src="https://logodownload.org/wp-content/uploads/2014/09/facebook-logo-1-2.png" alt="Facebook logo" width="50" height="50">
+                    </a>
+                    <a href="https://t.me/Gaxvian" target="_blank">
+                        <img src="https://tse4.mm.bing.net/th?id=OIP.6CKiFZf8rhfoY4qBAwyQbgHaHa&pid=Api&P=0&h=220" alt="Telegram icon" width="50" height="50">
+                    </a>
+                    <a href="https://discord.com/users/714365835329798235" target="_blank">
+                        <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-2-1.png" alt="Discord icon" width="45" height="45">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Function to toggle extra details visibility
+        function toggleDetails(box) {
+            box.classList.toggle('show-details');
+        }
+    </script>
+
+</body>
+</html>
